@@ -4,6 +4,9 @@ import Collaboration from "../assets/icon-collaboration.svg";
 import AnyFile from "../assets/icon-any-file.svg";
 import Productive from "../assets/illustration-stay-productive.png";
 import Arrow from "../assets/icon-arrow.svg";
+import Profile1 from '../assets/profile-1.jpg'
+import Profile2 from '../assets/profile-2.jpg'
+import Profile3 from '../assets/profile-3.jpg'
 
 export const fyloData = [
   {
@@ -61,16 +64,19 @@ export const fyloData = [
     cardsSection: [
       {
         review: "Fylo has improved our team productivity by an order of magnitude. Since making the switch our team has become a well-oiled collaboration machine.",
+        img: Profile1,
         user: "Satish Patel",
         role: "Founder & CEO, Huddle",
       },
       {
         review: "Fylo has improved our team productivity by an order of magnitude. Since making the switch our team has become a well-oiled collaboration machine.",
+        img: Profile2,
         user: "Bruce McKenzie",
         role: "Founder & CEO, Huddle",
       },
       {
         review: "Fylo has improved our team productivity by an order of magnitude. Since making the switch our team has become a well-oiled collaboration machine.",
+        img: Profile3,
         user: "Iva Boyd",
         role: "Founder & CEO, Huddle",
       },

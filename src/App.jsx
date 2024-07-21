@@ -4,6 +4,7 @@ import "./App.scss";
 import Hero from "./components/Hero";
 import GridSection from "./components/GridSection";
 import SeeHow from "./components/SeeHow";
+import Reviews from "./components/Reviews";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Hero data={fyloData} />
         <GridSection data={fyloData} />
         <SeeHow data={fyloData} />
+        <Reviews data={fyloData} />
       </main>
     </>
   );

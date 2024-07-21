@@ -214,3 +214,56 @@ span {
     }
   }
 }
+
+.reviews-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  position: relative;
+
+  &::before {
+    content: url("./assets/bg-quotes.png");
+    position: absolute;
+    top: -2rem;
+    left: -0.75rem;
+    font-size: 2rem;
+    color: white;
+    z-index: -10;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    width: 18rem;
+    gap: 2rem;
+    border-radius: 0.25rem;
+    background: map-get($colors, bg-testimonials);
+    padding: 2rem 1.5rem;
+    @include openSans(400);
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      img {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 100dvw;
+      }
+
+      div {
+        display: flex;
+        flex-direction: column;
+
+        .user {
+          font-weight: bold;
+        }
+
+        .role {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
