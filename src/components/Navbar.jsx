@@ -5,7 +5,7 @@ const Navbar = ({ data }) => {
   const { links } = data[0].nav;
 
   return (
-    <div className="navbar">
+    <nav className="navbar">
       <div className="log-container">
         <img src={Logo} alt="Fylo Icon" />
       </div>
@@ -16,7 +16,7 @@ const Navbar = ({ data }) => {
           </li>
         ))}
       </ul>
-    </div>
+    </nav>
   );
 };
 

@@ -1,8 +1,6 @@
 export const fyloData = [
   {
-    nav: {
-      links: ["Features", "Team", "Sign In"],
-    },
+    nav: { links: ["Features", "Team", "Sign In"] },
     hero: [
       {
         header: "All your files in one secure location, accessible anywhere.",
