@@ -29,6 +29,7 @@ $colors: (
 );
 
 body {
+  position: relative;
   font-size: 14px;
   background: map-get($colors, bg-main);
   color: white;
@@ -49,8 +50,11 @@ main {
   padding: 2rem;
 }
 
+span {
+  line-height: 1.5;
+}
+
 .navbar {
-  position: sticky;
   inset: 0;
   display: flex;
   justify-content: space-between;
@@ -58,7 +62,7 @@ main {
   width: 100%;
   backdrop-filter: blur(1rem);
   background: map-get($colors, bg-main);
-  padding: 1.5rem;
+  padding: 2rem;
 
   .logo-container {
     img {
@@ -162,6 +166,50 @@ main {
 
       .description {
         @include openSans(400);
+      }
+    }
+  }
+}
+
+.see-how-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 30rem;
+    align-items: flex-start;
+    align-content: flex-start;
+
+    span {
+      display: block;
+    }
+
+    span:not(:first-of-type),
+    a {
+      margin-top: 1rem;
+    }
+
+    .title {
+      font-size: 2rem;
+      font-weight: 500;
+      width: 20rem;
+    }
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: map-get($colors, cyan);
+      border-bottom: 1px solid map-get($colors, cyan);
+
+      img {
+        margin-left: 0.25rem;
       }
     }
   }

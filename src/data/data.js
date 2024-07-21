@@ -2,6 +2,8 @@ import Access from "../assets/icon-access-anywhere.svg";
 import Security from "../assets/icon-security.svg";
 import Collaboration from "../assets/icon-collaboration.svg";
 import AnyFile from "../assets/icon-any-file.svg";
+import Productive from "../assets/illustration-stay-productive.png";
+import Arrow from "../assets/icon-arrow.svg";
 
 export const fyloData = [
   {
@@ -43,13 +45,17 @@ export const fyloData = [
     },
     seeHow: [
       {
+        image: Productive,
+        alt: "Productive Icon",
         title: "Stay productive, wherever you are",
         paragraph: [
           { p: "Never let location be an issue when accessing your files. Fylo has you covered for all of your file storage needs." },
           {
-            p: " Securely share files and folders with friends, family and colleagues for live collaboration. No email attachments required. ",
+            p: " Securely share files and folders with friends, family and colleagues for live collaboration. No email attachments required.",
           },
         ],
+        a: "See how Fylo works",
+        svg: Arrow,
       },
     ],
     cardsSection: [
