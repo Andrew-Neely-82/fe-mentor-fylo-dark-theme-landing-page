@@ -6,7 +6,7 @@ const Navbar = ({ data }) => {
 
   return (
     <nav className="navbar">
-      <div className="log-container">
+      <div className="logo-container">
         <img src={Logo} alt="Fylo Icon" />
       </div>
       <ul>

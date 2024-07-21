@@ -37,19 +37,42 @@ body {
 }
 
 #root {
-  height: 100dvh; // remove
   max-width: 1440px;
   margin: auto;
 }
 
+main {
+  display: grid;
+  place-items: center;
+  max-width: 1440px;
+  margin: auto;
+  padding: 2rem;
+}
+
 .navbar {
+  position: sticky;
+  inset: 0;
   display: flex;
   justify-content: space-between;
-  padding: 4rem;
+  align-items: center;
+  width: 100%;
+  backdrop-filter: blur(1rem);
+  background: map-get($colors, bg-main);
+  padding: 1.5rem;
+
+  .logo-container {
+    img {
+      max-width: 176px;
+      width: 100%;
+      min-width: 2rem;
+    }
+  }
 
   ul {
     display: flex;
-
+    gap: 2rem;
+    width: 100%;
+    justify-content: flex-end;
     gap: 2rem;
 
     li {
@@ -70,6 +93,11 @@ body {
   text-align: center;
   margin-inline: auto;
 
+  img {
+    max-width: 534px;
+    width: 100%;
+  }
+
   h1 {
     font-size: 2.5rem;
   }
@@ -87,5 +115,54 @@ body {
     border-radius: 10rem;
     margin-block: 2rem;
     cursor: pointer;
+  }
+}
+
+.feature-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  margin: auto;
+  gap: 4rem;
+  max-width: 60rem;
+
+  @media screen and (max-width: 768px) {
+    display: grid;
+    grid-template-columns: auto;
+  }
+
+  .feature {
+    display: grid;
+    grid-column: auto;
+    max-width: 375px;
+    text-align: center;
+    justify-items: center;
+
+    picture {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      height: 4rem;
+
+      img {
+        width: 3.5rem;
+      }
+    }
+
+    .feature-info {
+      display: grid;
+      grid-row: auto;
+      gap: 14px;
+
+      .title {
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .description {
+        @include openSans(400);
+      }
+    }
   }
 }
