@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+@mixin raleWay($weight) {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: $weight;
+  font-style: normal;
+}
+
+@mixin openSans($weight) {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: $weight;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+$colors: (
+  // * backgrounds
+  bg-main: hsl(218, 28%, 13%),
+  bg-intro-email: hsl(217, 28%, 15%),
+  bg-footer: hsl(216, 53%, 9%),
+  bg-testimonials: hsl(219, 30%, 18%),
+  // * accent
+  error: hsl(0, 100%, 63%),
+  cyan: hsl(176, 68%, 64%),
+  blue: hsl(198, 60%, 50%)
+);
+
+body {
+  font-size: 14px;
+  margin: 0;
+}
+
+#root {
+  background: map-get($colors, bg-main);
+  height: 100dvh; // remove
+}
