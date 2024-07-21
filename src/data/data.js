@@ -1,12 +1,19 @@
+import Logo from "../assets/logo.svg";
 import Access from "../assets/icon-access-anywhere.svg";
 import Security from "../assets/icon-security.svg";
 import Collaboration from "../assets/icon-collaboration.svg";
 import AnyFile from "../assets/icon-any-file.svg";
 import Productive from "../assets/illustration-stay-productive.png";
 import Arrow from "../assets/icon-arrow.svg";
-import Profile1 from '../assets/profile-1.jpg'
-import Profile2 from '../assets/profile-2.jpg'
-import Profile3 from '../assets/profile-3.jpg'
+import Profile1 from "../assets/profile-1.jpg";
+import Profile2 from "../assets/profile-2.jpg";
+import Profile3 from "../assets/profile-3.jpg";
+import Location from "../assets/icon-location.svg";
+import Phone from "../assets/icon-phone.svg";
+import Email from "../assets/icon-email.svg";
+import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 export const fyloData = [
   {
@@ -90,11 +97,28 @@ export const fyloData = [
     ],
     footer: [
       {
-        location: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-        number: "+1-543-123-4567",
-        email: "example@fylo.com",
-        nav1: { links: ["About", "Us", "Jobs", "Press", "Blog"] },
-        nav2: { links: ["Contact", "Us", "Terms", "Privacy"] },
+        logo: {
+          img: Logo,
+          alt: "Fylo icon",
+        },
+        location: {
+          icon: Location,
+          alt: "Location icon",
+          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+        },
+        phone: {
+          icon: Phone,
+          alt: "Phone icon",
+          text: "+1-543-123-4567",
+        },
+        email: {
+          icon: Email,
+          alt: "Email icon",
+          text: "example@fylo.com",
+        },
+        nav1: { links: ["About Us", "Jobs", "Press", "Blog"] },
+        nav2: { links: ["Contact Us", "Terms", "Privacy"] },
+        social: [FacebookOutlinedIcon, TwitterIcon, InstagramIcon],
       },
     ],
   },
