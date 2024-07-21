@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import GridSection from "./components/GridSection";
 import SeeHow from "./components/SeeHow";
 import Reviews from "./components/Reviews";
+import GetStarted from "./components/GetStarted";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <GridSection data={fyloData} />
         <SeeHow data={fyloData} />
         <Reviews data={fyloData} />
+        <GetStarted data={fyloData} />
       </main>
     </>
   );

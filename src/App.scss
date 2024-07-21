@@ -267,3 +267,32 @@ span {
     }
   }
 }
+
+.get-started {
+  display: flex;
+  flex-direction: column;
+  background: map-get($colors, bg-intro-email);
+  border-radius: 0.25rem;
+  padding: 2rem;
+  width: 50%;
+  box-shadow: 0 0 1rem #00000025;
+
+  .sign-up {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 2rem;
+
+    input,
+    button {
+      border-radius: 100dvw;
+      padding: 0.5rem 1.5rem;
+      font-size: 14px;
+    }
+
+    input {
+      flex: 1;
+    }
+  }
+}
