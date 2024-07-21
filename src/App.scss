@@ -30,10 +30,35 @@ $colors: (
 
 body {
   font-size: 14px;
+  background: map-get($colors, bg-main);
+  color: white;
+  @include raleWay(400);
   margin: 0;
 }
 
 #root {
-  background: map-get($colors, bg-main);
   height: 100dvh; // remove
+  max-width: 1440px;
+  margin: auto;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 4rem;
+
+  ul {
+    display: flex;
+
+    gap: 2rem;
+
+    li {
+      list-style: none;
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
 }
