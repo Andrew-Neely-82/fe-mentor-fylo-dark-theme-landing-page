@@ -4,7 +4,7 @@ import Security from "../assets/icon-security.svg";
 import Collaboration from "../assets/icon-collaboration.svg";
 import AnyFile from "../assets/icon-any-file.svg";
 import Productive from "../assets/illustration-stay-productive.png";
-import Arrow from "../assets/icon-arrow.svg";
+import Arrow from "../assets/icon-arrow.svg?react";
 import Profile1 from "../assets/profile-1.jpg";
 import Profile2 from "../assets/profile-2.jpg";
 import Profile3 from "../assets/profile-3.jpg";
@@ -65,7 +65,7 @@ export const fyloData = [
           },
         ],
         a: "See how Fylo works",
-        svg: Arrow,
+        SVG: Arrow,
       },
     ],
     cardsSection: [

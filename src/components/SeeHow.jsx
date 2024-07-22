@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 const SeeHow = ({ data }) => {
-  const { image, alt, title, paragraph, a, svg } = data[0].seeHow[0];
+  const { image, alt, title, paragraph, a, SVG } = data[0].seeHow[0];
 
   return (
     <section className="see-how-section">
@@ -9,13 +9,13 @@ const SeeHow = ({ data }) => {
         <img src={image} alt={alt} />
       </picture>
       <div className="text-container">
-        <span className="title">{title}</span>
+        <span className="title heading-bold">{title}</span>
         {paragraph.map((el, key) => (
           <span key={key}>{el.p}</span>
         ))}
         <a href="#">
           {a}
-          <img src={svg} alt="" />
+          <SVG />
         </a>
       </div>
     </section>

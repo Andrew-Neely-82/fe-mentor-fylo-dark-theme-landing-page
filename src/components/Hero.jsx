@@ -7,9 +7,9 @@ const Hero = ({ data }) => {
   return (
     <section className="hero">
       <img src={Image} alt="" />
-      <h1>{header}</h1>
+      <h1 className="heading-bold">{header}</h1>
       <span>{p}</span>
-      <button>{btn}</button>
+      <button className="btn">{btn}</button>
     </section>
   );
 };

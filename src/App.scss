@@ -28,18 +28,44 @@ $colors: (
   blue: hsl(198, 60%, 50%)
 );
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   position: relative;
   font-size: 14px;
   background: map-get($colors, bg-main);
   color: white;
-  @include raleWay(400);
+  @include openSans(400);
   margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: map-get($colors, bg-testimonials);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: map-get($colors, blue);
+  border-radius: 1rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: map-get($colors, cyan);
 }
 
 #root {
   max-width: 1440px;
+  min-width: 320px;
   margin: auto;
+  position: relative;
 }
 
 main {
@@ -60,14 +86,16 @@ span {
 }
 
 .navbar {
+  position: sticky;
   inset: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: calc(100dvw - 4rem);
+  width: 100%;
   backdrop-filter: blur(1rem);
   background: map-get($colors, bg-main);
   padding: 2rem;
+  z-index: 100;
 
   .logo-container {
     img {
@@ -99,6 +127,7 @@ span {
   display: grid;
   place-items: center;
   max-width: 720px;
+  width: 100%;
   text-align: center;
   margin-inline: auto;
 
@@ -109,21 +138,16 @@ span {
 
   h1 {
     font-size: 2.5rem;
+
+    @media screen and (max-width: 768px) {
+      width: 25rem;
+      font-size: 2rem;
+    }
   }
 
   span {
     font-size: 16px;
     margin-inline: 8rem;
-  }
-
-  button {
-    background: linear-gradient(90deg, map-get($colors, cyan), map-get($colors, blue));
-    color: white;
-    padding: 1rem 5rem;
-    border: none;
-    border-radius: 10rem;
-    margin-block: 2rem;
-    cursor: pointer;
   }
 }
 
@@ -133,7 +157,7 @@ span {
   justify-items: center;
   margin: auto;
   gap: 4rem;
-  max-width: 60rem;
+  max-width: 100%;
 
   @media screen and (max-width: 768px) {
     display: grid;
@@ -168,10 +192,6 @@ span {
         font-size: 16px;
         font-weight: bold;
       }
-
-      .description {
-        @include openSans(400);
-      }
     }
   }
 }
@@ -180,6 +200,18 @@ span {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   place-items: center;
+  max-width: 100%;
+  width: 100%;
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: auto;
+  }
+
+  picture {
+    img {
+      width: 100%;
+    }
+  }
 
   .text-container {
     display: flex;
@@ -190,7 +222,7 @@ span {
     align-items: flex-start;
     align-content: flex-start;
 
-    span {
+    & > * {
       display: block;
     }
 
@@ -212,6 +244,22 @@ span {
       text-decoration: none;
       color: map-get($colors, cyan);
       border-bottom: 1px solid map-get($colors, cyan);
+      line-height: 1.5;
+
+      svg {
+        margin-left: 0.25rem;
+      }
+
+      &:hover {
+        color: white;
+        border-color: white;
+
+        svg {
+          use {
+            fill: white;
+          }
+        }
+      }
 
       img {
         margin-left: 0.25rem;
@@ -221,10 +269,14 @@ span {
 }
 
 .reviews-section {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  position: relative;
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: auto;
+  }
 
   &::before {
     content: url("./assets/bg-quotes.png");
@@ -244,12 +296,12 @@ span {
     border-radius: 0.25rem;
     background: map-get($colors, bg-testimonials);
     padding: 2rem 1.5rem;
-    @include openSans(400);
 
     .user-info {
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      letter-spacing: 1px;
 
       img {
         width: 2rem;
@@ -282,22 +334,59 @@ span {
   width: 50%;
   box-shadow: 0 0 1rem #00000025;
 
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .title,
+  p {
+    text-align: center;
+  }
+
   .sign-up {
     display: flex;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
     padding-inline: 2rem;
 
-    input,
-    button {
-      border-radius: 100dvw;
-      padding: 0.5rem 1.5rem;
-      font-size: 14px;
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
     }
 
-    input {
-      flex: 1;
+    form {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: fit-content;
+
+      button {
+        margin: 0;
+      }
+
+      input,
+      button {
+        border-radius: 100dvw;
+        padding: 0.5rem 1.5rem;
+        font-size: 14px;
+
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
+      }
+
+      input {
+        flex: 1;
+      }
+    }
+
+    .errors {
+      margin-left: 26px;
+      font-size: 10px;
+      color: map-get($colors, error);
+      font-weight: bold;
     }
   }
 }
@@ -320,6 +409,10 @@ footer {
     width: 100%;
     margin-top: 2rem;
 
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+
     .location {
       display: flex;
       justify-content: flex-start;
@@ -331,6 +424,34 @@ footer {
       display: flex;
       flex-direction: column;
       gap: 1rem;
+    }
+
+    .about-us {
+      @media screen and (max-width: 768px) {
+        margin-top: 4rem;
+
+        ul {
+          padding-left: 0;
+        }
+      }
+    }
+
+    .legal {
+      @media screen and (max-width: 768px) {
+        margin-top: 2rem;
+
+        ul {
+          padding-left: 0;
+        }
+      }
+    }
+
+    ul {
+      li {
+        &:hover {
+          font-weight: bold;
+        }
+      }
     }
   }
 
@@ -358,6 +479,10 @@ footer {
     gap: 1rem;
     margin-bottom: auto;
 
+    @media screen and (max-width: 768px) {
+      justify-content: center;
+    }
+
     a {
       display: inline-flex;
       justify-content: center;
@@ -366,6 +491,14 @@ footer {
       border-radius: 100dvw;
       padding: 6px;
 
+      &:hover {
+        border-color: map-get($colors, cyan);
+
+        svg {
+          fill: map-get($colors, cyan);
+        }
+      }
+
       svg {
         $size: 1.25rem;
         fill: white;
@@ -373,5 +506,27 @@ footer {
         height: $size;
       }
     }
+  }
+}
+
+.heading-bold {
+  @include raleWay(700);
+}
+
+.heading-normal {
+  @include raleWay(400);
+}
+
+.btn {
+  background: linear-gradient(90deg, map-get($colors, cyan), map-get($colors, blue));
+  color: white;
+  padding: 1rem 5rem;
+  border: none;
+  border-radius: 10rem;
+  margin-block: 2rem;
+  cursor: pointer;
+
+  &:active {
+    background: map-get($colors, cyan);
   }
 }

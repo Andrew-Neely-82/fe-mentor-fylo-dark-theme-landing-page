@@ -9,7 +9,7 @@ const GridSection = ({ data }) => {
             <img src={el.icon} alt={`${el.alt} icon`} />
           </picture>
           <div className="feature-info">
-            <span className="title">{el.title}</span>
+            <span className="title heading-normal">{el.title}</span>
             <span className="description">{el.p}</span>
           </div>
         </div>
