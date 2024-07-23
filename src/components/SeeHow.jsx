@@ -5,18 +5,20 @@ const SeeHow = ({ data }) => {
 
   return (
     <section className="see-how-section">
-      <picture>
-        <img src={image} alt={alt} />
-      </picture>
-      <div className="text-container">
-        <span className="title heading-bold">{title}</span>
-        {paragraph.map((el, key) => (
-          <span key={key}>{el.p}</span>
-        ))}
-        <a href="#">
-          {a}
-          <SVG />
-        </a>
+      <div className="see-how-wrapper">
+        <picture>
+          <img src={image} alt={alt} />
+        </picture>
+        <div className="text-container">
+          <span className="title heading-bold">{title}</span>
+          {paragraph.map((el, key) => (
+            <span key={key}>{el.p}</span>
+          ))}
+          <a href="#">
+            {a}
+            <SVG />
+          </a>
+        </div>
       </div>
     </section>
   );

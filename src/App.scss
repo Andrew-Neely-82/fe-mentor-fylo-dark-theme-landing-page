@@ -81,7 +81,6 @@ span {
   inset: 0;
   width: 100%;
   backdrop-filter: blur(1rem);
-  padding: 5rem;
   z-index: 100;
 
   .navbar-container {
@@ -90,6 +89,7 @@ span {
     align-items: center;
     max-width: 1440px;
     margin: auto;
+    padding: 5rem;
 
     .logo-container {
       img {
@@ -128,12 +128,17 @@ span {
   padding-bottom: 12rem;
   z-index: 10;
 
-  &::after {
-    content: url("./assets//bg-curvy-desktop.svg");
+  &::before {
+    content: "";
     position: absolute;
-    bottom: -4px;
-    left: 0;
+    background: url("./assets/bg-curvy-desktop.svg");
+    inset: 0;
+    background-position: bottom center;
+    background-repeat: no-repeat;
     z-index: -10;
+    @media screen and (max-width: 375px) {
+      content: url("./assets/bg-curvy-mobile.svg");
+    }
   }
 
   img {
@@ -178,14 +183,14 @@ span {
       justify-items: center;
       place-items: center;
       gap: 4rem;
-      margin: auto;
       max-width: 1440px;
       width: 60rem;
-    }
+      margin: auto;
 
-    @media screen and (max-width: 768px) {
-      display: grid;
-      grid-template-columns: auto;
+      @media screen and (max-width: 768px) {
+        display: grid;
+        grid-template-columns: auto;
+      }
     }
 
     .feature {
@@ -200,7 +205,8 @@ span {
         justify-content: center;
         align-items: center;
         padding: 1rem;
-        height: 4rem;
+        height: 7rem;
+        width: 100%;
 
         img {
           width: 5rem;
@@ -213,8 +219,9 @@ span {
         gap: 14px;
 
         .title {
-          font-size: 16px;
+          font-size: 1.25rem;
           font-weight: bold;
+          margin-top: 1rem;
         }
       }
     }
@@ -222,71 +229,77 @@ span {
 }
 
 .see-how-section {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  place-items: center;
   width: 100%;
+  margin: auto;
 
-  @media screen and (max-width: 768px) {
-    grid-template-columns: auto;
-  }
+  .see-how-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    max-width: 1440px;
+    background: map-get($colors, bg-main);
 
-  picture {
-    img {
-      width: 100%;
-    }
-  }
-
-  .text-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    width: 30rem;
-    align-items: flex-start;
-    align-content: flex-start;
-
-    & > * {
-      display: block;
+    @media screen and (max-width: 768px) {
+      grid-template-columns: auto;
     }
 
-    span:not(:first-of-type),
-    a {
-      margin-top: 1rem;
+    picture {
+      img {
+        width: 100%;
+      }
     }
 
-    .title {
-      font-size: 2rem;
-      font-weight: 500;
-      width: 20rem;
-    }
-
-    a {
+    .text-container {
       display: flex;
+      flex-direction: column;
       justify-content: center;
-      align-items: center;
-      text-decoration: none;
-      color: map-get($colors, cyan);
-      border-bottom: 1px solid map-get($colors, cyan);
-      line-height: 1.5;
+      height: 100%;
+      width: 30rem;
+      align-items: flex-start;
+      align-content: flex-start;
 
-      svg {
-        margin-left: 0.25rem;
+      & > * {
+        display: block;
       }
 
-      &:hover {
-        color: white;
-        border-color: white;
+      span:not(:first-of-type),
+      a {
+        margin-top: 1rem;
+      }
+
+      .title {
+        font-size: 2rem;
+        font-weight: 500;
+        width: 20rem;
+      }
+
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: map-get($colors, cyan);
+        border-bottom: 1px solid map-get($colors, cyan);
+        line-height: 1.5;
 
         svg {
-          use {
-            fill: white;
+          margin-left: 0.25rem;
+        }
+
+        &:hover {
+          color: white;
+          border-color: white;
+
+          svg {
+            use {
+              fill: white;
+            }
           }
         }
-      }
 
-      img {
-        margin-left: 0.25rem;
+        img {
+          margin-left: 0.25rem;
+        }
       }
     }
   }
