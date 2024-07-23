@@ -12,14 +12,12 @@ function App() {
   return (
     <>
       <Navbar data={fyloData} />
-      <main>
-        <Hero data={fyloData} />
-        <GridSection data={fyloData} />
-        <SeeHow data={fyloData} />
-        <Reviews data={fyloData} />
-        <GetStarted data={fyloData} />
-        <Footer data={fyloData} />
-      </main>
+      <Hero data={fyloData} />
+      <GridSection data={fyloData} />
+      <SeeHow data={fyloData} />
+      <Reviews data={fyloData} />
+      <GetStarted data={fyloData} />
+      <Footer data={fyloData} />
     </>
   );
 }

@@ -6,16 +6,18 @@ const Navbar = ({ data }) => {
 
   return (
     <nav className="navbar">
-      <div className="logo-container">
-        <img src={Logo} alt="Fylo Icon" />
+      <div className="navbar-container">
+        <div className="logo-container">
+          <img src={Logo} alt="Fylo Icon" />
+        </div>
+        <ul>
+          {links.map((el, key) => (
+            <li key={key}>
+              <a href="#">{el}</a>
+            </li>
+          ))}
+        </ul>
       </div>
-      <ul>
-        {links.map((el, key) => (
-          <li key={key}>
-            <a href="#">{el}</a>
-          </li>
-        ))}
-      </ul>
     </nav>
   );
 };

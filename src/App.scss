@@ -35,50 +35,41 @@ $colors: (
 body {
   position: relative;
   font-size: 14px;
-  background: map-get($colors, bg-main);
+  background: inherit;
   color: white;
   @include openSans(400);
+  background: map-get($colors, bg-intro-email);
   margin: 0;
 }
 
 ::-webkit-scrollbar {
   width: 10px;
+  &-track {
+    background: map-get($colors, bg-testimonials);
+  }
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: map-get($colors, bg-testimonials);
-}
-
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: map-get($colors, blue);
   border-radius: 1rem;
+  &:hover {
+    background: map-get($colors, cyan);
+  }
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: map-get($colors, cyan);
-}
-
-#root {
-  max-width: 1440px;
-  min-width: 320px;
-  margin: auto;
-  position: relative;
-}
-
-main {
-  display: grid;
-  place-items: center;
-  max-width: 1440px;
-  margin: auto;
-  padding: 2rem;
-}
+// .bg-wavy {
+//   background: url("./assets/bg-curvy-desktop.svg");
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   display: grid;
+//   place-items: center;
+//   height: fit-content;
+// }
 
 section,
 footer {
-  margin-block: 2rem;
+  max-width: 1440px;
+  z-index: 10;
 }
 
 span {
@@ -88,56 +79,71 @@ span {
 .navbar {
   position: sticky;
   inset: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
   backdrop-filter: blur(1rem);
-  background: map-get($colors, bg-main);
-  padding: 2rem;
+  padding: 5rem;
   z-index: 100;
 
-  .logo-container {
-    img {
-      max-width: 176px;
-      width: 100%;
-      min-width: 2rem;
-    }
-  }
-
-  ul {
+  .navbar-container {
     display: flex;
-    gap: 2rem;
-    width: 100%;
-    justify-content: flex-end;
-    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    margin: auto;
 
-    li {
-      list-style: none;
+    .logo-container {
+      img {
+        max-width: 176px;
+        width: 100%;
+        min-width: 2rem;
+      }
+    }
 
-      a {
-        color: white;
-        text-decoration: none;
+    ul {
+      display: flex;
+      gap: 2rem;
+      width: 100%;
+      justify-content: flex-end;
+      gap: 4rem;
+
+      li {
+        list-style: none;
+
+        a {
+          color: white;
+          text-decoration: none;
+        }
       }
     }
   }
 }
 
 .hero {
+  position: relative;
   display: grid;
   place-items: center;
-  max-width: 720px;
   width: 100%;
   text-align: center;
   margin-inline: auto;
+  padding-bottom: 12rem;
+  z-index: 10;
+
+  &::after {
+    content: url("./assets//bg-curvy-desktop.svg");
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    z-index: -10;
+  }
 
   img {
-    max-width: 534px;
+    max-width: 45rem;
     width: 100%;
   }
 
   h1 {
     font-size: 2.5rem;
+    max-width: 45rem;
 
     @media screen and (max-width: 768px) {
       width: 25rem;
@@ -146,51 +152,70 @@ span {
   }
 
   span {
-    font-size: 16px;
+    max-width: 38rem;
+    font-size: 1.25rem;
     margin-inline: 8rem;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding-inline: 6rem;
   }
 }
 
 .feature-section {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-items: center;
-  margin: auto;
-  gap: 4rem;
-  max-width: 100%;
+  min-width: 100%;
+  position: relative;
 
-  @media screen and (max-width: 768px) {
-    display: grid;
-    grid-template-columns: auto;
-  }
+  .feature-wrapper {
+    max-width: 1440px;
+    background: map-get($colors, bg-main);
+    margin: auto;
 
-  .feature {
-    display: grid;
-    grid-column: auto;
-    max-width: 375px;
-    text-align: center;
-    justify-items: center;
-
-    picture {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 1rem;
-      height: 4rem;
-
-      img {
-        width: 3.5rem;
-      }
+    .feature-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-items: center;
+      place-items: center;
+      gap: 4rem;
+      margin: auto;
+      max-width: 1440px;
+      width: 60rem;
     }
 
-    .feature-info {
+    @media screen and (max-width: 768px) {
       display: grid;
-      grid-row: auto;
-      gap: 14px;
+      grid-template-columns: auto;
+    }
 
-      .title {
-        font-size: 16px;
-        font-weight: bold;
+    .feature {
+      display: grid;
+      grid-column: auto;
+      max-width: 375px;
+      text-align: center;
+      justify-items: center;
+
+      picture {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        height: 4rem;
+
+        img {
+          width: 5rem;
+        }
+      }
+
+      .feature-info {
+        display: grid;
+        grid-row: auto;
+        gap: 14px;
+
+        .title {
+          font-size: 16px;
+          font-weight: bold;
+        }
       }
     }
   }
@@ -200,7 +225,6 @@ span {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   place-items: center;
-  max-width: 100%;
   width: 100%;
 
   @media screen and (max-width: 768px) {
