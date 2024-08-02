@@ -11,15 +11,17 @@ const Footer = ({ data }) => {
 
   return (
     <footer>
-      <div className="logo-container">
-        <LogoIcon />
-      </div>
-      <div className="contact-container">
-        <Location location={location} />
-        <ContactMethod contactMethods={contactMethods} />
-        <AboutUs nav1={nav1} />
-        <Legal nav2={nav2} />
-        <Social social={social} />
+      <div className="footer-wrapper">
+        <div className="logo-container">
+          <LogoIcon />
+        </div>
+        <div className="contact-container">
+          <Location location={location} />
+          <ContactMethod contactMethods={contactMethods} />
+          <AboutUs nav1={nav1} />
+          <Legal nav2={nav2} />
+          <Social social={social} />
+        </div>
       </div>
     </footer>
   );

@@ -191,6 +191,13 @@ span {
   }
 }
 
+.see-how-section,
+.reviews-section,
+.get-started,
+footer {
+  background: map-get($colors, bg-main);
+}
+
 .feature-section {
   min-width: 100%;
   position: relative;
@@ -198,8 +205,8 @@ span {
 
   .feature-wrapper {
     max-width: 1440px;
-    background: map-get($colors, bg-main);
     margin: auto;
+    background: map-get($colors, bg-main);
 
     .feature-container {
       display: grid;
@@ -331,23 +338,31 @@ span {
 }
 
 .reviews-section {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  min-width: 100%;
+  background: map-get($colors, bg-intro-email);
 
-  @media screen and (max-width: 768px) {
-    grid-template-columns: auto;
-  }
+  .reviews-wrapper {
+    position: relative;
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    background: map-get($colors, bg-main);
+    margin: auto;
 
-  &::before {
-    content: url("./assets/bg-quotes.png");
-    position: absolute;
-    top: -2rem;
-    left: -0.75rem;
-    font-size: 2rem;
-    color: white;
-    z-index: -10;
+    @media screen and (max-width: 768px) {
+      grid-template-columns: auto;
+    }
+
+    &::before {
+      content: url("./assets/bg-quotes.png");
+      position: absolute;
+      top: -2rem;
+      left: -0.75rem;
+      font-size: 2rem;
+      color: white;
+      z-index: 0;
+    }
   }
 
   .card {
@@ -388,81 +403,89 @@ span {
 }
 
 .get-started {
-  display: flex;
-  flex-direction: column;
-  background: map-get($colors, bg-intro-email);
-  border-radius: 0.25rem;
-  padding: 2rem;
-  width: 50%;
-  box-shadow: 0 0 1rem #00000025;
+  min-width: 100%;
 
-  .title {
-    font-size: 2rem;
-    font-weight: bold;
-  }
-
-  .title,
-  p {
-    text-align: center;
-  }
-
-  .sign-up {
+  .get-started-wrapper {
     display: flex;
     flex-direction: column;
-    // justify-content: center;
-    // align-items: center;
-    padding-inline: 2rem;
+    background: map-get($colors, bg-intro-email);
+    border-radius: 0.25rem;
+    padding: 2rem;
+    width: 50%;
+    box-shadow: 0 0 1rem #00000025;
+    margin: auto;
 
-    @media screen and (max-width: 768px) {
-      flex-direction: column;
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
     }
 
-    form {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      height: fit-content;
+    .title,
+    p {
+      text-align: center;
+    }
 
-      button {
-        margin: 0;
+    .sign-up {
+      display: flex;
+      flex-direction: column;
+      padding-inline: 2rem;
+
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
       }
 
-      input,
-      button {
-        border-radius: 100dvw;
-        padding: 0.5rem 1.5rem;
-        font-size: 14px;
+      form {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: fit-content;
 
         @media screen and (max-width: 768px) {
-          width: 100%;
+          flex-direction: column;
+        }
+
+        button {
+          margin: 0;
+        }
+
+        input,
+        button {
+          border-radius: 100dvw;
+          padding: 0.5rem 1.5rem;
+          font-size: 14px;
+
+          @media screen and (max-width: 768px) {
+            width: 100%;
+          }
+        }
+
+        input {
+          flex: 1;
         }
       }
 
-      input {
-        flex: 1;
+      .errors {
+        margin-left: 26px;
+        font-size: 10px;
+        color: map-get($colors, error);
+        font-weight: bold;
       }
-    }
-
-    .errors {
-      margin-left: 26px;
-      font-size: 10px;
-      color: map-get($colors, error);
-      font-weight: bold;
     }
   }
 }
 
 footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 100%;
+  $footer-gap: 1rem;
 
-  div {
-    img {
-      margin-right: 1rem;
-    }
+  min-width: 100%;
+
+  .footer-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-width: 1440px;
+    margin: auto;
   }
 
   .contact-container {
@@ -479,13 +502,22 @@ footer {
       display: flex;
       justify-content: flex-start;
       align-items: flex-start;
-      width: 18rem;
+      gap: $footer-gap;
+
+      span {
+        width: 18rem;
+      }
     }
 
     .contact-methods {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: $footer-gap;
+
+      .contact-method {
+        display: flex;
+        gap: $footer-gap;
+      }
     }
 
     .about-us {
@@ -521,7 +553,7 @@ footer {
     ul {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: $footer-gap;
       margin-top: 0;
 
       li {
@@ -538,7 +570,7 @@ footer {
   .social {
     display: flex;
     height: fit-content;
-    gap: 1rem;
+    gap: $footer-gap;
     margin-bottom: auto;
 
     @media screen and (max-width: 768px) {
