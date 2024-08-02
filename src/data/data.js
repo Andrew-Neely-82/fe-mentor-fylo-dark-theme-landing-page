@@ -1,4 +1,4 @@
-import Logo from "../assets/logo.svg";
+import Logo from "../assets/logo.svg?react";
 import Access from "../assets/icon-access-anywhere.svg";
 import Security from "../assets/icon-security.svg";
 import Collaboration from "../assets/icon-collaboration.svg";
@@ -8,16 +8,16 @@ import Arrow from "../assets/icon-arrow.svg?react";
 import Profile1 from "../assets/profile-1.jpg";
 import Profile2 from "../assets/profile-2.jpg";
 import Profile3 from "../assets/profile-3.jpg";
-import Location from "../assets/icon-location.svg";
-import Phone from "../assets/icon-phone.svg";
-import Email from "../assets/icon-email.svg";
+import Location from "../assets/icon-location.svg?react";
+import Phone from "../assets/icon-phone.svg?react";
+import Email from "../assets/icon-email.svg?react";
 import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
 export const fyloData = [
   {
-    nav: { links: ["Features", "Team", "Sign In"] },
+    nav: { links: ["Features", "Team", "Sign In"], href: ["#features", "#team", "#sign-in"] },
     hero: [
       {
         header: "All your files in one secure location, accessible anywhere.",
@@ -103,18 +103,11 @@ export const fyloData = [
         },
         location: {
           icon: Location,
-          alt: "Location icon",
           text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
         },
-        phone: {
-          icon: Phone,
-          alt: "Phone icon",
-          text: "+1-543-123-4567",
-        },
-        email: {
-          icon: Email,
-          alt: "Email icon",
-          text: "example@fylo.com",
+        contactMethods: {
+          icon: [Phone, Email],
+          text: ["+1-543-123-4567", "example@fylo.com"],
         },
         nav1: { links: ["About Us", "Jobs", "Press", "Blog"] },
         nav2: { links: ["Contact Us", "Terms", "Privacy"] },

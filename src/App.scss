@@ -32,6 +32,10 @@ $colors: (
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   position: relative;
   font-size: 14px;
@@ -190,6 +194,7 @@ span {
 .feature-section {
   min-width: 100%;
   position: relative;
+  scroll-margin: 14rem;
 
   .feature-wrapper {
     max-width: 1440px;
@@ -586,4 +591,9 @@ footer {
   &:active {
     background: map-get($colors, cyan);
   }
+}
+
+img {
+  max-width: 20rem;
+  width: 100%;
 }

@@ -2,18 +2,20 @@ import PropTypes from "prop-types";
 import Logo from "../assets/logo.svg";
 
 const Navbar = ({ data }) => {
-  const { links } = data[0].nav;
+  const { links, href } = data[0].nav;
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
         <div className="logo-container">
-          <img src={Logo} alt="Fylo Icon" />
+          <a href="#">
+            <img src={Logo} alt="Fylo Icon" />
+          </a>
         </div>
         <ul>
           {links.map((el, key) => (
             <li key={key}>
-              <a href="#">{el}</a>
+              <a href={href[key]}>{el}</a>
             </li>
           ))}
         </ul>

@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const GridSection = ({ data }) => {
   return (
-    <section className="feature-section">
+    <section className="feature-section" id="features">
       <div className="feature-wrapper">
         <div className="feature-container">
           {data[0].gridSection.grid.map((el, key) => (
