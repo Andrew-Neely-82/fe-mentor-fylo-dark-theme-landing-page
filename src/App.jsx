@@ -5,7 +5,7 @@ import GridSection from "./components/GridSection";
 import SeeHow from "./components/SeeHow";
 import Reviews from "./components/Reviews";
 import GetStarted from "./components/GetStarted";
-import "./App.scss";
+import "./styles/App.scss";
 import Footer from "./components/footer/Footer";
 
 function App() {

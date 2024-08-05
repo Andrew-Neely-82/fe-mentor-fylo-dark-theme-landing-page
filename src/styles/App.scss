@@ -1,20 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
-
-@mixin raleWay($weight) {
-  font-family: "Raleway", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: $weight;
-  font-style: normal;
-}
-
-@mixin openSans($weight) {
-  font-family: "Open Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: $weight;
-  font-style: normal;
-  font-variation-settings: "wdth" 100;
-}
+@import "./mixins";
 
 $colors: (
   // * backgrounds
@@ -27,6 +11,14 @@ $colors: (
   cyan: hsl(176, 68%, 64%),
   blue: hsl(198, 60%, 50%)
 );
+
+:root {
+  --width-full: 100%;
+  --width-1440: 1440px;
+  --border-pill: 100vw;
+}
+
+// * DEFAULT STYLES ================================================
 
 * {
   box-sizing: border-box;
@@ -61,18 +53,9 @@ body {
   }
 }
 
-// .bg-wavy {
-//   background: url("./assets/bg-curvy-desktop.svg");
-//   background-repeat: no-repeat;
-//   background-position: center;
-//   display: grid;
-//   place-items: center;
-//   height: fit-content;
-// }
-
 section,
 footer {
-  max-width: 1440px;
+  max-width: var(--width-1440);
   z-index: 10;
 }
 
@@ -80,10 +63,12 @@ span {
   line-height: 1.5;
 }
 
+// * CLASS BASED STYLES ================================================
+
 .navbar {
   position: sticky;
   inset: 0;
-  width: 100%;
+  width: var(--width-full);
   backdrop-filter: blur(1rem);
   z-index: 100;
 
@@ -91,7 +76,7 @@ span {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1440px;
+    max-width: var(--width-1440);
     margin: auto;
     padding: 5rem;
 
@@ -102,7 +87,7 @@ span {
     .logo-container {
       img {
         max-width: 176px;
-        width: 100%;
+        width: var(--width-full);
         min-width: 2rem;
       }
     }
@@ -110,7 +95,7 @@ span {
     ul {
       display: flex;
       gap: 2rem;
-      width: 100%;
+      width: var(--width-full);
       justify-content: flex-end;
       gap: 4rem;
 
@@ -134,7 +119,7 @@ span {
   position: relative;
   display: grid;
   place-items: center;
-  width: 100%;
+  width: var(--width-full);
   text-align: center;
   margin-inline: auto;
   padding-bottom: 12rem;
@@ -162,7 +147,7 @@ span {
 
   img {
     max-width: 45rem;
-    width: 100%;
+    width: var(--width-full);
   }
 
   h1 {
@@ -199,12 +184,12 @@ footer {
 }
 
 .feature-section {
-  min-width: 100%;
+  min-width: var(--width-full);
   position: relative;
   scroll-margin: 14rem;
 
   .feature-wrapper {
-    max-width: 1440px;
+    max-width: var(--width-1440);
     margin: auto;
     background: map-get($colors, bg-main);
 
@@ -214,14 +199,14 @@ footer {
       justify-items: center;
       place-items: center;
       gap: 4rem;
-      max-width: 1440px;
+      max-width: var(--width-1440);
       width: 60rem;
       margin: auto;
 
       @media screen and (max-width: 768px) {
         display: grid;
         grid-template-columns: auto;
-        width: 100%;
+        width: var(--width-full);
       }
     }
 
@@ -238,7 +223,7 @@ footer {
         align-items: center;
         padding: 1rem;
         height: 7rem;
-        width: 100%;
+        width: var(--width-full);
 
         img {
           width: 5rem;
@@ -261,14 +246,14 @@ footer {
 }
 
 .see-how-section {
-  width: 100%;
+  width: var(--width-full);
   margin: auto;
 
   .see-how-wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     place-items: center;
-    max-width: 1440px;
+    max-width: var(--width-1440);
     background: map-get($colors, bg-main);
 
     @media screen and (max-width: 768px) {
@@ -277,7 +262,7 @@ footer {
 
     picture {
       img {
-        width: 100%;
+        width: var(--width-full);
       }
     }
 
@@ -286,7 +271,7 @@ footer {
       flex-direction: column;
       justify-content: center;
       height: 100%;
-      width: 30rem;
+      max-width: 30rem;
       align-items: flex-start;
       align-content: flex-start;
 
@@ -338,7 +323,7 @@ footer {
 }
 
 .reviews-section {
-  min-width: 100%;
+  min-width: var(--width-full);
   background: map-get($colors, bg-intro-email);
 
   .reviews-wrapper {
@@ -383,7 +368,7 @@ footer {
       img {
         width: 2rem;
         height: 2rem;
-        border-radius: 100dvw;
+        border-radius: var(--border-pill);
       }
 
       div {
@@ -403,7 +388,7 @@ footer {
 }
 
 .get-started {
-  min-width: 100%;
+  min-width: var(--width-full);
 
   .get-started-wrapper {
     display: flex;
@@ -411,7 +396,7 @@ footer {
     background: map-get($colors, bg-intro-email);
     border-radius: 0.25rem;
     padding: 2rem;
-    width: 50%;
+    max-width: calc(var(--width-full) / 2);
     box-shadow: 0 0 1rem #00000025;
     margin: auto;
 
@@ -438,11 +423,11 @@ footer {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 100%;
+        width: var(--width-full);
         height: fit-content;
 
         @media screen and (max-width: 768px) {
-          flex-direction: column ;
+          flex-direction: column;
         }
 
         button {
@@ -451,12 +436,12 @@ footer {
 
         input,
         button {
-          border-radius: 100dvw;
+          border-radius: var(--border-pill);
           padding: 0.5rem 1.5rem;
           font-size: 14px;
 
           @media screen and (max-width: 768px) {
-            width: 100%;
+            width: var(--width-full);
           }
         }
 
@@ -478,20 +463,20 @@ footer {
 footer {
   $footer-gap: 1rem;
 
-  min-width: 100%;
+  max-width: var(--width-full);
 
   .footer-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    max-width: 1440px;
+    max-width: var(--width-1440);
     margin: auto;
   }
 
   .contact-container {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: var(--width-full);
     margin-top: 2rem;
 
     @media screen and (max-width: 768px) {
@@ -582,7 +567,7 @@ footer {
       justify-content: center;
       align-items: center;
       border: 1px solid white;
-      border-radius: 100dvw;
+      border-radius: var(--border-pill);
       padding: 6px;
 
       &:hover {
@@ -627,5 +612,5 @@ footer {
 
 img {
   max-width: 20rem;
-  width: 100%;
+  width: var(--width-full);
 }
